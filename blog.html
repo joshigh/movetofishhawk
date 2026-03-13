@@ -4,8 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Move to Fish Hawk</title>
-<meta name="description" content="Local insights, school guides, real estate market updates, and everything you need to know about living in Fish Hawk, Lithia FL.">
+<title>Blog | Move to Fish Hawk — Local Guides for Lithia, FL</title>
+<meta name="description" content="In-depth local guides about Fish Hawk, Lithia FL — schools, real estate, the Alafia River, VA loans, and what life actually looks like here.">
+<link rel="canonical" href="https://www.movetofishhawk.com/blog.html">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -33,266 +34,127 @@
   .nav-cta { background: var(--gold); color: #fff !important; padding: 8px 20px; border-radius: 4px; }
   .nav-cta:hover { background: var(--gold-light) !important; color: var(--forest) !important; }
 
-  /* PAGE HEADER */
   .page-header { background: var(--forest); padding: 120px 80px 64px; border-bottom: 1px solid rgba(196,147,58,0.2); }
-  .page-header .section-tag { display: inline-block; color: var(--gold-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+  .section-tag { display: inline-block; color: var(--gold-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
   .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem,4vw,3.2rem); font-weight: 600; color: #fff; line-height: 1.1; margin-bottom: 14px; }
   .page-header p { color: rgba(255,255,255,0.65); font-size: 1rem; font-weight: 300; max-width: 520px; line-height: 1.7; }
 
-  /* BLOG LAYOUT */
-  .blog-layout { display: grid; grid-template-columns: 1fr 340px; gap: 48px; padding: 72px 80px; align-items: start; max-width: 1200px; margin: 0 auto; }
+  .blog-layout { display: grid; grid-template-columns: 1fr 300px; gap: 56px; padding: 72px 80px; max-width: 1200px; margin: 0 auto; align-items: start; }
+  .blog-list { display: flex; flex-direction: column; gap: 28px; }
 
-  /* MAIN CONTENT */
-  .blog-list { display: flex; flex-direction: column; gap: 48px; }
-
-  /* FEATURED POST */
-  .post-card { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: box-shadow 0.2s; }
-  .post-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
-  .post-card-body { padding: 36px; }
-  .post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .post-card { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 36px; text-decoration: none; color: inherit; display: block; transition: box-shadow 0.2s, border-color 0.2s; }
+  .post-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); border-color: rgba(196,147,58,0.5); }
+  .post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
   .post-tag { background: var(--forest); color: var(--gold-light); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 12px; }
   .post-date { font-size: 0.78rem; color: var(--gray); font-weight: 300; }
   .post-read-time { font-size: 0.78rem; color: var(--gray); font-weight: 300; }
-  .post-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--forest); line-height: 1.2; margin-bottom: 12px; }
-  .post-card .post-excerpt { font-size: 0.92rem; color: var(--gray); line-height: 1.75; font-weight: 300; margin-bottom: 24px; }
-  .post-read-more { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-weight: 600; font-size: 0.88rem; text-decoration: none; border-bottom: 1px solid rgba(196,147,58,0.4); padding-bottom: 2px; transition: gap 0.2s, border-color 0.2s; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: 'Outfit', sans-serif; }
-  .post-read-more:hover { gap: 12px; border-color: var(--gold); }
+  .post-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 600; color: var(--forest); line-height: 1.2; margin-bottom: 10px; }
+  .post-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.75; font-weight: 300; margin-bottom: 18px; }
+  .read-more { color: var(--gold); font-weight: 600; font-size: 0.86rem; display: inline-flex; align-items: center; gap: 6px; border-bottom: 1px solid rgba(196,147,58,0.35); padding-bottom: 1px; }
+  .post-card:hover .read-more { gap: 10px; }
 
-  /* FULL POST */
-  .post-full { display: none; }
-  .post-full.open { display: block; }
-  .post-full-body { padding: 0 36px 36px; border-top: 1px solid var(--border); margin-top: 0; padding-top: 32px; }
-  .post-full-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--forest); margin: 32px 0 12px; }
-  .post-full-body h3:first-child { margin-top: 0; }
-  .post-full-body p { font-size: 0.92rem; color: var(--charcoal); line-height: 1.85; font-weight: 300; margin-bottom: 18px; }
-  .post-full-body strong { font-weight: 600; color: var(--forest); }
-  .post-collapse { display: inline-flex; align-items: center; gap: 8px; color: var(--gray); font-size: 0.82rem; font-weight: 500; cursor: pointer; background: none; border: none; font-family: 'Outfit', sans-serif; margin-top: 8px; padding: 0; }
-  .post-collapse:hover { color: var(--forest); }
-
-
-
-  /* SIDEBAR */
-  .sidebar { display: flex; flex-direction: column; gap: 28px; position: sticky; top: 88px; }
-  .sidebar-box { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 28px; }
-  .sidebar-box h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--forest); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
-  .sidebar-topics { display: flex; flex-direction: column; gap: 8px; }
-  .sidebar-topic { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--charcoal); padding: 8px 0; border-bottom: 1px solid var(--border); font-weight: 400; }
+  .sidebar { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 88px; }
+  .sidebar-box { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 24px; }
+  .sidebar-box h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--forest); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+  .sidebar-topics { display: flex; flex-direction: column; }
+  .sidebar-topic { display: flex; justify-content: space-between; align-items: center; font-size: 0.84rem; color: var(--charcoal); padding: 9px 0; border-bottom: 1px solid var(--border); }
   .sidebar-topic:last-child { border-bottom: none; }
   .sidebar-topic-count { background: var(--forest); color: var(--gold-light); font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
   .sidebar-cta { background: var(--forest); border: none; }
   .sidebar-cta h4 { color: #fff; border-bottom-color: rgba(255,255,255,0.15); }
-  .sidebar-cta p { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.65; font-weight: 300; margin-bottom: 18px; }
-  .sidebar-cta-btn { display: block; background: var(--gold); color: #fff; text-align: center; padding: 12px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em; transition: background 0.2s; }
+  .sidebar-cta p { font-size: 0.83rem; color: rgba(255,255,255,0.65); line-height: 1.65; font-weight: 300; margin-bottom: 16px; }
+  .sidebar-cta-btn { display: block; background: var(--gold); color: #fff; text-align: center; padding: 11px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.83rem; letter-spacing: 0.06em; transition: background 0.2s; }
   .sidebar-cta-btn:hover { background: var(--gold-light); color: var(--forest); }
-  .sidebar-links { display: flex; flex-direction: column; gap: 8px; }
-  .sidebar-link { font-size: 0.85rem; color: var(--sage); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+  .sidebar-links { display: flex; flex-direction: column; }
+  .sidebar-link { font-size: 0.83rem; color: var(--sage); text-decoration: none; font-weight: 500; padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+  .sidebar-link:last-child { border-bottom: none; }
   .sidebar-link:hover { color: var(--gold); }
 
-  /* FOOTER */
   footer { background: var(--forest); color: rgba(255,255,255,0.6); border-top: 1px solid rgba(196,147,58,0.2); }
   .footer-top { padding: 44px 80px; display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
   .footer-bottom { padding: 16px 80px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 0.72rem; color: rgba(255,255,255,0.35); line-height: 1.6; }
-  .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
   .footer-bottom a:hover { color: var(--gold-light); }
   .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: #fff; margin-bottom: 8px; }
   .footer-logo span { color: var(--gold-light); }
   .footer-left p { font-size: 0.78rem; line-height: 1.6; max-width: 380px; }
-  .footer-right { text-align: center; flex-shrink: 0; }
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  .blog-layout { animation: fadeUp 0.6s ease both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .blog-list { animation: fadeUp 0.5s ease both; }
 
   @media (max-width: 900px) {
     nav { padding: 0 20px; } .nav-links { display: none; }
     .page-header { padding: 100px 24px 48px; }
     .blog-layout { grid-template-columns: 1fr; padding: 48px 24px; }
     .sidebar { position: static; }
-    .footer-top { flex-direction: column; gap: 22px; text-align: center; padding: 36px 22px; }
+    .footer-top { flex-direction: column; padding: 36px 22px; }
     .footer-bottom { padding: 14px 22px; }
-    .footer-right { text-align: center; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="movetofishhawk.html" class="nav-logo">Move to <span>Fish Hawk</span></a>
+  <a href="index.html" class="nav-logo">Move to <span>Fish Hawk</span></a>
   <ul class="nav-links">
-    <li><a href="movetofishhawk.html#about">About</a></li>
-    <li><a href="movetofishhawk.html#outdoors">Outdoors</a></li>
-    <li><a href="movetofishhawk.html#schools">Schools</a></li>
-    <li><a href="movetofishhawk.html#homes">Homes</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#outdoors">Outdoors</a></li>
+    <li><a href="index.html#schools">Schools</a></li>
+    <li><a href="index.html#homes">Homes</a></li>
     <li><a href="blog.html" class="active">Blog</a></li>
-    <li><a href="movetofishhawk.html#contact" class="nav-cta">Get In Touch</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get In Touch</a></li>
   </ul>
 </nav>
 
 <div class="page-header">
   <span class="section-tag">The Blog</span>
   <h1>Local knowledge.<br>Straight talk.</h1>
-  <p>Real information about Fish Hawk — the schools, the market, the outdoors, and what life actually looks like here. Written for people making a serious decision about where to live.</p>
+  <p>In-depth guides about Fish Hawk — the schools, the market, the outdoors, and what life actually looks like here. Written for people making a serious decision about where to live.</p>
 </div>
 
 <div class="blog-layout">
   <main class="blog-list">
 
-    <!-- POST 1 - FULL -->
-    <article class="post-card">
-      <div class="post-card-body">
-        <div class="post-meta">
-          <span class="post-tag">Schools</span>
-          <span class="post-date">March 2026</span>
-          <span class="post-read-time">· 5 min read</span>
-        </div>
-        <h2>Why FishHawk Ranch Is a Parent's Dream: The Schools Say It All</h2>
-        <p class="post-excerpt">In a region where finding one A-rated public school in your zone is considered a win, FishHawk sits in a position most Tampa Bay communities can't match — a complete pipeline of A-rated public schools from Pre-K through 12th grade, most of them either inside the community or within a couple miles of it.</p>
-        <button class="post-read-more" onclick="togglePost(this)">Read the full post →</button>
+    <a href="fishhawk-schools-guide.html" class="post-card">
+      <div class="post-meta">
+        <span class="post-tag">Schools</span>
+        <span class="post-date">March 2026</span>
+        <span class="post-read-time">&middot; 5 min read</span>
       </div>
+      <h2>Why FishHawk Ranch Is a Parent's Dream: The Schools Say It All</h2>
+      <p>In a region where finding one A-rated public school in your zone is considered a win, FishHawk sits in a position most Tampa Bay communities can't match — a complete pipeline of A-rated public schools from Pre-K through 12th grade, most of them inside the community or within a couple miles of it.</p>
+      <span class="read-more">Read the full guide &rarr;</span>
+    </a>
 
-      <div class="post-full">
-        <div class="post-full-body">
-
-          <p>If you've ever talked to someone who moved to FishHawk Ranch, it usually doesn't take long before the conversation turns to the schools. In a region where finding one A-rated public school in your zone is considered a win, FishHawk sits in a position most Tampa Bay communities can't match — a complete pipeline of A-rated public schools from Pre-K through 12th grade, most of them either inside the community or within a couple miles of it.</p>
-
-          <h3>The Elementary Schools: Where It All Starts</h3>
-          <p>FishHawk is served by two elementary schools within its community borders, and both carry serious academic reputations.</p>
-          <p><strong>Bevis Elementary School</strong>, located at 5720 Osprey Ridge Drive, sits right inside Phase 2 of FishHawk Ranch and is one of the most decorated public elementary schools in the state. U.S. News ranks Bevis 26th among all elementary schools in Florida, and 91% of students are proficient in math and 86% in reading — well above both Hillsborough County and state averages. The school has earned Blue Ribbon status along with Reading, ESE, and Math Teacher of the Year honors, and has been consistently recognized as a Top Performer on Florida's state assessments. Families in the Osprey Park and surrounding villages can walk their kids to school from a number of streets in the area.</p>
-          <p><strong>FishHawk Creek Elementary</strong>, located at 16815 Dorman Rd off the Dorman Road corridor on the eastern side of the community, serves that portion of FishHawk and carries its own strong reputation as an A-rated school with a GreatSchools score of 8 out of 10.</p>
-          <p>Then there's <strong>Stowers Elementary</strong>, the newest addition, sitting inside FishHawk Ranch West at 13915 Barrington Stowers Drive — a genuine neighborhood school that's walkable, community-oriented, and already earning strong marks.</p>
-
-          <h3>The Middle Schools: Building on a Strong Foundation</h3>
-          <p><strong>Randall Middle School</strong> sits at 16510 FishHawk Blvd, right along the main boulevard on the north side of the road and just next door to Newsome High School. It serves a large portion of the FishHawk community and has consistently held A and high B ratings from the state.</p>
-          <p><strong>Barrington Middle School</strong>, at 5925 Village Center Drive, is tucked inside FishHawk Ranch West alongside Stowers Elementary — giving families in that section of the community a school path from kindergarten through 8th grade without ever really leaving the neighborhood.</p>
-
-          <h3>Newsome High School</h3>
-          <p>Everything in FishHawk feeds into <strong>Joe E. Newsome High School</strong>, located at 16550 FishHawk Blvd — right next door to Randall Middle, making the transition between schools a short walk down the same campus area.</p>
-          <p>Newsome is one of the top high schools in Florida by most measures. U.S. News ranks it 45th in the state, and 72% of students participate in Advanced Placement coursework. In the 2024-25 school year, 81% of 10th-grade students scored proficient or better in English Language Arts, compared to 57% for Hillsborough County and 58% for the state.</p>
-          <p>The school's marching band has performed in the Macy's Thanksgiving Day Parade, and Newsome has received recognition for having an Elite Athletic Program from Hillsborough County. Students also have access to the Bright Futures Scholarship Program, which can cover 75% to 100% of public college tuition at Florida colleges and universities — a meaningful long-term benefit for families thinking about the cost of higher education.</p>
-
-          <h3>The Bigger Picture</h3>
-          <p>FishHawk is one of the very few zones in the Tampa Bay area where every level — elementary, middle, and high school — carries an A-rating, with most schools located either inside the community or within two and a half miles of it.</p>
-          <p>For families relocating to the Tampa area and weighing their options, that kind of consistency across every grade level is genuinely hard to find. When people describe FishHawk as a community built for families, the school system is a big part of what they're pointing to.</p>
-
-          <button class="post-collapse" onclick="togglePost(this)">↑ Collapse post</button>
-        </div>
+    <a href="fishhawk-ranch-vs-fish-hawk-trails.html" class="post-card">
+      <div class="post-meta">
+        <span class="post-tag">Real Estate</span>
+        <span class="post-date">February 2026</span>
+        <span class="post-read-time">&middot; 7 min read</span>
       </div>
-    </article>
+      <h2>FishHawk Ranch vs. Fish Hawk Trails — Which Is Right for You?</h2>
+      <p>Both communities share the same A-rated schools and sit in the same corner of Lithia. But the lifestyle is meaningfully different — custom homes on half-acre lots vs. a resort-style master-planned community. Here's how to decide.</p>
+      <span class="read-more">Read the full guide &rarr;</span>
+    </a>
 
-    <!-- POST 2 - FISHHAWK RANCH VS FISH HAWK TRAILS -->
-    <article class="post-card">
-      <div class="post-card-body">
-        <div class="post-meta">
-          <span class="post-tag">Real Estate</span>
-          <span class="post-date">February 2026</span>
-          <span class="post-read-time">· 7 min read</span>
-        </div>
-        <h2>FishHawk Ranch vs. Fish Hawk Trails — Which Is Right for You?</h2>
-        <p class="post-excerpt">Both communities sit in the same corner of Lithia, share the same A-rated schools, and attract a similar kind of buyer. But once you get past those common threads, FishHawk Ranch and Fish Hawk Trails are genuinely different places to live — and the decision usually comes down to what kind of lifestyle you're actually after.</p>
-        <button class="post-read-more" onclick="togglePost(this)">Read the full post →</button>
+    <a href="alafia-river-guide.html" class="post-card">
+      <div class="post-meta">
+        <span class="post-tag">Outdoors</span>
+        <span class="post-date">March 2026</span>
+        <span class="post-read-time">&middot; 8 min read</span>
       </div>
-
-      <div class="post-full">
-        <div class="post-full-body">
-
-          <p>Both communities sit in the same corner of Lithia, share the same A-rated schools, and attract a similar kind of buyer: someone who wants more than a neighborhood, who values green space, good neighbors, and a strong sense of place. But once you get past those common threads, FishHawk Ranch and Fish Hawk Trails are genuinely different places to live, and the decision between them usually comes down to what kind of lifestyle you're actually after.</p>
-
-          <h3>The Geography: Neighbors, Not Twins</h3>
-          <p>Fish Hawk Trails sits just east of FishHawk Ranch, separated by Lithia Pinecrest Road. It was developed by Glen Cross, who also played a role in developing FishHawk Ranch, and launched around 1996, making it slightly older than its more famous neighbor. Both communities are in Lithia, both feed into the same school pipeline, and from the outside they might look like different phases of the same place. They're not.</p>
-          <p>FishHawk Ranch is large by any measure. Dating back to 1999, it spans more than 4,000 acres and includes around 40 subdivisions, multiple community development districts, and a variety of home types from townhomes and villas to large single-family homes. Fish Hawk Trails, by contrast, is intentionally contained — a gated conservation community with just over 400 homes, designed from the start to be quiet, private, and low-density.</p>
-
-          <h3>The Homes: Production vs. Custom</h3>
-          <p>FishHawk Ranch was built by a mix of national production builders over two decades. You'll find a wide range of floor plans, styles, and price points — homes ranging from about 1,180 to over 6,700 square feet, with single-family homes, townhomes, and villas all part of the inventory. Many buyers appreciate the predictability of production homes: clear pricing, modern floor plans, and neighborhoods that feel cohesive. The tradeoff is that the lots, while perfectly nice, are generally more modest in size, particularly in the newer phases.</p>
-          <p>Fish Hawk Trails was built differently. Every home is custom-designed on a lot of at least half an acre, with large property setbacks and home styles ranging from Florida modern to Key West and Southern traditional. Features like tray ceilings, triple crown molding, hardwood flooring, gas fireplaces, and chef-inspired kitchens are common. These homes were built to individual buyers' specifications, which means more variety, more character, and more of a sense that you're buying someone's considered design rather than a product off a shelf. Lot sizes run from half an acre to a full acre. If separation from your neighbors matters to you, Fish Hawk Trails wins that comparison without much debate.</p>
-
-          <h3>The Amenities: Resort Lifestyle vs. Quiet Conservation</h3>
-          <p>FishHawk Ranch is built around the idea that you shouldn't need to leave the community to live a full, active life. Multiple clubhouses, an Olympic-style lap pool, a lagoon-style pool at the Aquatic Club, fitness facilities throughout, a world-class tennis facility with five Har-Tru clay courts, a skate park, roller hockey, basketball, pickleball, a movie theater, baseball and softball fields, soccer fields, and a full sports complex. Over 25 miles of paved trails, dog parks, and a regular calendar of community events — concerts, farmers markets, holiday gatherings. FishHawk Ranch West adds the Lake House with its own pool, fire pit, and screened game room overlooking the community lake.</p>
-          <p>Fish Hawk Trails takes a quieter approach. Residents have access to tennis courts, baseball fields, parks, a pavilion, two playgrounds, four miles of paved perimeter trails, and six miles of trails through a 285-acre nature preserve. There's no resort pool, no fitness center, no clay competition court. What there is instead is genuine natural space, wide streets canopied by live oaks draped in Spanish moss, and a neighborhood that largely stays out of your way. Which of those sounds more appealing is a pretty reliable indicator of which community is a better fit.</p>
-
-          <h3>Security and Access</h3>
-          <p>Both communities are gated, but they function differently in practice. Fish Hawk Trails has 24-hour manned guard gate access — consistent and present around the clock. It's a smaller community, and the guards get to know residents over time. FishHawk Ranch is more complex on this front. While some individual villages within FishHawk Ranch have their own private gated access, the broader community is not uniformly gated the same way Fish Hawk Trails is. For buyers who put a premium on that kind of controlled access throughout the day and night, Fish Hawk Trails has a clear edge.</p>
-
-          <h3>The Feel of the Community</h3>
-          <p>FishHawk Ranch is social by design. The amenities, the events, the Park Square area with its restaurants and gathering spaces, the sports leagues, the tennis club — all of it is built to get residents interacting. If you move to FishHawk Ranch and want to be involved, the infrastructure for that is everywhere. Neighbors tend to know each other, kids grow up together, and there's a genuine community identity that has built up over two-plus decades.</p>
-          <p>Fish Hawk Trails is quieter and more private — not because residents are unfriendly, but because the community was designed with that intention from the beginning. Developer Glen Cross conceived it as a conservation development, with the goal of protecting natural environmental features in perpetuity, preserving open space and wildlife habitats, and maintaining the character of the rural area. You feel that when you drive through. The lots are large, the homes are spaced well apart, and the landscape hasn't been scrubbed into subdivision uniformity. It still looks and feels like Lithia.</p>
-
-          <h3>The Schools: A Shared Advantage</h3>
-          <p>This is the one area where neither community has an edge over the other. Both FishHawk Ranch and Fish Hawk Trails are zoned for the same exceptional schools: Bevis Elementary or FishHawk Creek Elementary depending on your specific address, Randall Middle or Barrington Middle, and Newsome High School. All carry A-ratings from the state of Florida, and Newsome sits in the top 50 high schools statewide. Wherever you land in this part of Lithia, your kids are in good hands academically.</p>
-
-          <h3>Price and Availability</h3>
-          <p>FishHawk Ranch has a much larger and more active resale market, along with new construction available in some phases. Entry-level townhomes and villas start well below $400,000, while larger single-family homes in the premium villages push past $700,000 and beyond. There's a wide range, which is part of what makes FishHawk Ranch accessible to so many different buyers.</p>
-          <p>Fish Hawk Trails is a finished community — no new homes are being built. It's rare that a home comes available, but when one does it tends to be a larger home on a significant lot, priced to reflect both the custom construction and the land. Buyers looking in Fish Hawk Trails should be prepared to move when the right home appears, because inventory is genuinely limited.</p>
-
-          <h3>How to Decide</h3>
-          <p>If you want a master-planned community with resort-style pools, organized sports leagues, a packed amenities calendar, walkability to restaurants and shops at Park Square, and a neighborhood culture built around being active and social — FishHawk Ranch is probably your answer. It's a remarkable achievement in community planning, and families who settle there tend to stay for a long time.</p>
-          <p>If you want a half-acre or more of land around you, a custom home with real character, a 24-hour manned gate, mature trees, and a neighborhood that values privacy and natural space over programming and amenities — Fish Hawk Trails is one of the best options in all of Hillsborough County. The fact that it feeds into the same school zone as FishHawk Ranch makes it even more compelling for families.</p>
-          <p>Both are excellent. They're just excellent in different ways, and the right choice depends entirely on how you want to live day to day.</p>
-
-          <button class="post-collapse" onclick="togglePost(this)">↑ Collapse post</button>
-        </div>
-      </div>
-    </article>
-
-
-    <!-- POST 3 - ALAFIA RIVER -->
-    <article class="post-card">
-      <div class="post-card-body">
-        <div class="post-meta">
-          <span class="post-tag">Outdoors</span>
-          <span class="post-date">March 2026</span>
-          <span class="post-read-time">· 8 min read</span>
-        </div>
-        <h2>Everything You Can Do on the Alafia River Without Getting on the Highway</h2>
-        <p class="post-excerpt">Most people driving through Lithia on their way to somewhere else have no idea what's sitting right outside their window. The Alafia River corridor is one of the most genuinely useful stretches of natural space in all of Hillsborough County, and for anyone living in FishHawk Ranch or Fish Hawk Trails, the bulk of it is within a few minutes of home.</p>
-        <button class="post-read-more" onclick="togglePost(this)">Read the full post &rarr;</button>
-      </div>
-
-      <div class="post-full">
-        <div class="post-full-body">
-
-          <p>Most people driving through Lithia on their way to somewhere else have no idea what's sitting right outside their window. The Alafia River corridor is one of the most genuinely useful stretches of natural space in all of Hillsborough County, and for anyone living in FishHawk Ranch or Fish Hawk Trails, the bulk of it is within a few minutes of home. No interstate, no toll road, no 45-minute haul to find something worth doing.</p>
-
-          <h3>A Little Context on the River</h3>
-          <p>The Alafia River (pronounced AL-uh-fi) was named by the Tocobaga Indians who settled the Tampa Bay area, and the name translates loosely to "river of fire," referring to the red fluorescent sparks from algae spores and phosphate visible in the water at night. The upper portion of the river, closest to FishHawk, is shallow, narrow, and heavily canopied. The water is tannin-colored in the way most Florida rivers are, with stretches of clear water fed by side creeks with white sandy bottoms. Live oaks and cypress hang over both banks, draped in Spanish moss. It looks and feels nothing like the suburban landscape just a mile away.</p>
-
-          <h3>Alderman's Ford Conservation Park: The Anchor of It All</h3>
-          <p>The park sits on County Road 39, just north of the intersection with Lithia Pinecrest Road — a short drive from most of FishHawk Ranch and practically around the corner from Fish Hawk Trails. Alderman's Ford sits at the confluence of the North and South Prong of the Alafia River, protecting a landscape where early Florida settler James Alderman created a ford across the river by cutting into its banks in the 1840s.</p>
-          <p>The park offers up to 7 miles of blazed trails, including a 1.9-mile paved loop that follows both prongs of the river, connecting to a boardwalk and footbridges through shaded woods of towering cypress and oak. The loop is hiker, dog walker, and bicycle-friendly, and the $2 per vehicle admission is about the best deal in the county. There's also a canoe and kayak launch inside the park, with a separate entrance off CR 39 at 9625 Canoe Launch Loop.</p>
-
-          <h3>Paddling the State Designated Trail: Alderman's Ford to Lithia Springs</h3>
-          <p>A 10-mile State Designated Paddling Trail runs between Alderman's Ford Park and Lithia Springs Conservation Park, rated easy to moderate depending on water levels. The river runs between 1 and 4 mph depending on rainfall, and the limestone shoals that start around mile 2 make for quick, fun moments rather than anything genuinely dangerous. At normal water levels this is an approachable trip for families and beginners.</p>
-          <p>Most of the river is bracketed by public conservation lands, so wildlife is constant — ibis, wood stork, osprey, red-shouldered hawk, pileated woodpecker, kingfisher, blue heron, alligators, and turtles all live in this corridor. The paddle runs one way, so doing the full 10 miles requires a vehicle shuttle. That's where Alafia River Canoe Rentals comes in.</p>
-
-          <h3>Alafia River Canoe Rentals: The Local Outfitter</h3>
-          <p>Alafia River Canoe Rentals has been operating on the banks of the Alafia for close to 50 years, located at 4419 River Drive in Valrico, just off Lithia Pinecrest Road. A full day canoe rental runs around $25, and the outfitter handles the shuttle up to Alderman's Ford so you float back downstream to the dock. Call ahead to check water levels before you go, especially in the dry season.</p>
-
-          <h3>Lithia Springs: Swimming in 72-Degree Spring Water</h3>
-          <p>The paddling trail ends at Lithia Springs Conservation Park on Lithia Springs Road, and even if you never paddle, the park is worth a trip on its own. A natural spring flows year-round at a constant 72 degrees, with a lifeguard-protected swimming area that's genuinely cold by Florida standards. On a hot July afternoon, stepping into 72-degree spring water is something you don't forget. The park also offers fishing, volleyball, picnic tables, a playground, and camping. Admission is $2 per vehicle plus a small per-person fee to swim. Note: swimming directly in the Alafia River is not recommended — Lithia Springs is the right spot.</p>
-
-          <h3>Fishing the Alafia</h3>
-          <p>In the upper river around Alderman's Ford, you're in freshwater territory — largemouth bass, bluegill, and catfish are the main targets. You can fish from a kayak or canoe along the entire paddling trail, or bank fish from the park areas. As the river moves west and widens toward Gibsonton and Tampa Bay, the water transitions to brackish and then saltwater. Some of Tampa Bay's prime redfish spots are found in Bullfrog Creek just south of the Alafia's mouth, and snook, trout, and tarpon are all accessible for anglers willing to run a boat further downriver.</p>
-
-          <h3>Boating and Jet Skis: The Lower River</h3>
-          <p>The upper Alafia is shallow and narrow — paddle craft only. But as it widens past Brandon toward Gibsonton and US-41, the river opens up for motorized watercraft. Williams Park Boat Ramp, next to the US 41 bridge, has four lanes accommodating large boats with ample paved parking. From here you can run the lower river and reach Tampa Bay, including Beer Can Island, a popular local hangout in warmer months. For FishHawk residents with trailers, it's roughly a 20-minute drive.</p>
-
-          <h3>Mountain Biking at Alafia River State Park</h3>
-          <p>Alafia River State Park on County Road 39 south of Lithia offers something you won't find anywhere else in the Tampa area. The park sits on reclaimed phosphate mine land with some of the most dramatic elevation changes in Florida, making it a recognized destination for mountain bikers who come from across the state to ride the IMBA-rated trail system. Hikers and equestrians also have access to around 20 miles of trails through mixed hardwood forests, pine flatwoods, and rolling hills. Day use admission is $5.</p>
-
-          <h3>The Bigger Point</h3>
-          <p>Most outdoor recreation conversations about living near Tampa start and end with the beaches. The Alafia River corridor never comes up, even though it offers paddling, spring swimming, freshwater and saltwater fishing, hiking, mountain biking, camping, boating, and jet skiing — spread across parks that are open daily and mostly cost $2 to access. For anyone living in FishHawk Ranch or Fish Hawk Trails, this is all sitting just outside your neighborhood. You need a kayak, a cooler, and about 10 minutes in the car.</p>
-
-          <button class="post-collapse" onclick="togglePost(this)">&uarr; Collapse post</button>
-        </div>
-      </div>
-    </article>
+      <h2>Everything You Can Do on the Alafia River Without Getting on the Highway</h2>
+      <p>Paddling, spring swimming, freshwater and saltwater fishing, mountain biking, camping, boating — the Alafia River corridor is one of the most underrated outdoor resources in Tampa Bay, and most of it is within 10 minutes of FishHawk's front gate.</p>
+      <span class="read-more">Read the full guide &rarr;</span>
+    </a>
 
   </main>
 
-  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-box sidebar-cta">
       <h4>Mortgage questions?</h4>
-      <p>Josh High at Swift Home Mortgage knows the Fish Hawk market inside and out — including VA loans for military families.</p>
-      <a href="movetofishhawk.html#contact" class="sidebar-cta-btn">Get In Touch</a>
+      <p>Josh High at Swift Home Mortgage knows the Fish Hawk market inside and out — including VA loans for military families at MacDill.</p>
+      <a href="index.html#contact" class="sidebar-cta-btn">Get In Touch</a>
     </div>
 
     <div class="sidebar-box">
@@ -309,12 +171,11 @@
     <div class="sidebar-box">
       <h4>Explore Fish Hawk</h4>
       <div class="sidebar-links">
-        <a href="movetofishhawk.html#about" class="sidebar-link">→ About Fish Hawk</a>
-        <a href="movetofishhawk.html#outdoors" class="sidebar-link">→ Outdoors & Nature</a>
-        <a href="movetofishhawk.html#equestrian" class="sidebar-link">→ Equestrian Living</a>
-        <a href="movetofishhawk.html#schools" class="sidebar-link">→ Schools Guide</a>
-        <a href="movetofishhawk.html#homes" class="sidebar-link">→ Homes & Real Estate</a>
-        <a href="movetofishhawk.html#faq" class="sidebar-link">→ FAQ</a>
+        <a href="index.html#about" class="sidebar-link">&rarr; About Fish Hawk</a>
+        <a href="index.html#outdoors" class="sidebar-link">&rarr; Outdoors &amp; Nature</a>
+        <a href="index.html#equestrian" class="sidebar-link">&rarr; Equestrian Living</a>
+        <a href="index.html#schools" class="sidebar-link">&rarr; Schools Guide</a>
+        <a href="index.html#homes" class="sidebar-link">&rarr; Homes &amp; Real Estate</a>
       </div>
     </div>
   </aside>
@@ -325,10 +186,7 @@
     <div class="footer-left">
       <div class="footer-logo">Move to <span>Fish Hawk</span></div>
       <p>An independent guide to Fish Hawk, Lithia FL — a census-designated place in Hillsborough County. Helping families make well-informed decisions about one of Tampa Bay's most unique communities.</p>
-      <p style="margin-top:10px;">Mortgage questions? <a href="https://www.swifthomemortgage.com" target="_blank" style="color:var(--gold-light);text-decoration:none;font-weight:500;">Swift Home Mortgage</a> &nbsp;·&nbsp; (813) 606-4255</p>
-    </div>
-    <div class="footer-right">
-      <span style="font-size:0.65rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;">Equal Housing Opportunity</span>
+      <p style="margin-top:10px;">Mortgage questions? <a href="https://www.swifthomemortgage.com" target="_blank" style="color:var(--gold-light);text-decoration:none;font-weight:500;">Swift Home Mortgage</a> &nbsp;&middot;&nbsp; (813) 606-4255</p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -336,21 +194,5 @@
   </div>
 </footer>
 
-<script>
-function togglePost(btn) {
-  const card = btn.closest('.post-card');
-  const fullPost = card.querySelector('.post-full');
-  const isOpen = fullPost.classList.contains('open');
-  if (isOpen) {
-    fullPost.classList.remove('open');
-    const readMoreBtn = card.querySelector('.post-read-more');
-    if (readMoreBtn) readMoreBtn.textContent = 'Read the full post →';
-  } else {
-    fullPost.classList.add('open');
-    const readMoreBtn = card.querySelector('.post-read-more');
-    if (readMoreBtn) readMoreBtn.textContent = 'Collapse ↑';
-  }
-}
-</script>
 </body>
 </html>
