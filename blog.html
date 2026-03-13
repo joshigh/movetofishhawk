@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Move to Fish Hawk</title>
+<meta name="description" content="Local insights, school guides, real estate market updates, and everything you need to know about living in Fish Hawk, Lithia FL.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a2e1a;
+    --sage: #4a6741;
+    --moss: #6b8f5e;
+    --gold: #c4933a;
+    --gold-light: #e8b96a;
+    --cream: #f7f4ee;
+    --warm-white: #fdfcf9;
+    --charcoal: #2c2c2c;
+    --gray: #6b7280;
+    --border: #ddd8cc;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--warm-white); color: var(--charcoal); }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(26,46,26,0.97); backdrop-filter: blur(12px); padding: 0 48px; height: 68px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(196,147,58,0.25); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; color: #fff; font-size: 1.35rem; font-weight: 600; text-decoration: none; }
+  .nav-logo span { color: var(--gold-light); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.84rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+  .nav-cta { background: var(--gold); color: #fff !important; padding: 8px 20px; border-radius: 4px; }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--forest) !important; }
+
+  /* PAGE HEADER */
+  .page-header { background: var(--forest); padding: 120px 80px 64px; border-bottom: 1px solid rgba(196,147,58,0.2); }
+  .page-header .section-tag { display: inline-block; color: var(--gold-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; }
+  .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem,4vw,3.2rem); font-weight: 600; color: #fff; line-height: 1.1; margin-bottom: 14px; }
+  .page-header p { color: rgba(255,255,255,0.65); font-size: 1rem; font-weight: 300; max-width: 520px; line-height: 1.7; }
+
+  /* BLOG LAYOUT */
+  .blog-layout { display: grid; grid-template-columns: 1fr 340px; gap: 48px; padding: 72px 80px; align-items: start; max-width: 1200px; margin: 0 auto; }
+
+  /* MAIN CONTENT */
+  .blog-list { display: flex; flex-direction: column; gap: 48px; }
+
+  /* FEATURED POST */
+  .post-card { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: box-shadow 0.2s; }
+  .post-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+  .post-card-body { padding: 36px; }
+  .post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .post-tag { background: var(--forest); color: var(--gold-light); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 12px; }
+  .post-date { font-size: 0.78rem; color: var(--gray); font-weight: 300; }
+  .post-read-time { font-size: 0.78rem; color: var(--gray); font-weight: 300; }
+  .post-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--forest); line-height: 1.2; margin-bottom: 12px; }
+  .post-card .post-excerpt { font-size: 0.92rem; color: var(--gray); line-height: 1.75; font-weight: 300; margin-bottom: 24px; }
+  .post-read-more { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-weight: 600; font-size: 0.88rem; text-decoration: none; border-bottom: 1px solid rgba(196,147,58,0.4); padding-bottom: 2px; transition: gap 0.2s, border-color 0.2s; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; font-family: 'Outfit', sans-serif; }
+  .post-read-more:hover { gap: 12px; border-color: var(--gold); }
+
+  /* FULL POST */
+  .post-full { display: none; }
+  .post-full.open { display: block; }
+  .post-full-body { padding: 0 36px 36px; border-top: 1px solid var(--border); margin-top: 0; padding-top: 32px; }
+  .post-full-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--forest); margin: 32px 0 12px; }
+  .post-full-body h3:first-child { margin-top: 0; }
+  .post-full-body p { font-size: 0.92rem; color: var(--charcoal); line-height: 1.85; font-weight: 300; margin-bottom: 18px; }
+  .post-full-body strong { font-weight: 600; color: var(--forest); }
+  .post-collapse { display: inline-flex; align-items: center; gap: 8px; color: var(--gray); font-size: 0.82rem; font-weight: 500; cursor: pointer; background: none; border: none; font-family: 'Outfit', sans-serif; margin-top: 8px; padding: 0; }
+  .post-collapse:hover { color: var(--forest); }
+
+  /* COMING SOON CARDS */
+  .post-card-coming { background: var(--warm-white); border: 1px solid var(--border); border-radius: 4px; padding: 28px 32px; opacity: 0.75; }
+  .post-card-coming .post-meta { margin-bottom: 12px; }
+  .post-card-coming h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--forest); line-height: 1.25; margin-bottom: 10px; }
+  .post-card-coming p { font-size: 0.88rem; color: var(--gray); line-height: 1.7; font-weight: 300; margin-bottom: 14px; }
+  .coming-badge { display: inline-block; background: var(--cream); border: 1px solid var(--border); color: var(--moss); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 12px; }
+
+  /* SIDEBAR */
+  .sidebar { display: flex; flex-direction: column; gap: 28px; position: sticky; top: 88px; }
+  .sidebar-box { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 28px; }
+  .sidebar-box h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--forest); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+  .sidebar-topics { display: flex; flex-direction: column; gap: 8px; }
+  .sidebar-topic { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--charcoal); padding: 8px 0; border-bottom: 1px solid var(--border); font-weight: 400; }
+  .sidebar-topic:last-child { border-bottom: none; }
+  .sidebar-topic-count { background: var(--forest); color: var(--gold-light); font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+  .sidebar-cta { background: var(--forest); border: none; }
+  .sidebar-cta h4 { color: #fff; border-bottom-color: rgba(255,255,255,0.15); }
+  .sidebar-cta p { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.65; font-weight: 300; margin-bottom: 18px; }
+  .sidebar-cta-btn { display: block; background: var(--gold); color: #fff; text-align: center; padding: 12px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.06em; transition: background 0.2s; }
+  .sidebar-cta-btn:hover { background: var(--gold-light); color: var(--forest); }
+  .sidebar-links { display: flex; flex-direction: column; gap: 8px; }
+  .sidebar-link { font-size: 0.85rem; color: var(--sage); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+  .sidebar-link:hover { color: var(--gold); }
+
+  /* FOOTER */
+  footer { background: var(--forest); color: rgba(255,255,255,0.6); border-top: 1px solid rgba(196,147,58,0.2); }
+  .footer-top { padding: 44px 80px; display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+  .footer-bottom { padding: 16px 80px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 0.72rem; color: rgba(255,255,255,0.35); line-height: 1.6; }
+  .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-bottom a:hover { color: var(--gold-light); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: #fff; margin-bottom: 8px; }
+  .footer-logo span { color: var(--gold-light); }
+  .footer-left p { font-size: 0.78rem; line-height: 1.6; max-width: 380px; }
+  .footer-right { text-align: center; flex-shrink: 0; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .blog-layout { animation: fadeUp 0.6s ease both; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; } .nav-links { display: none; }
+    .page-header { padding: 100px 24px 48px; }
+    .blog-layout { grid-template-columns: 1fr; padding: 48px 24px; }
+    .sidebar { position: static; }
+    .footer-top { flex-direction: column; gap: 22px; text-align: center; padding: 36px 22px; }
+    .footer-bottom { padding: 14px 22px; }
+    .footer-right { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="movetofishhawk.html" class="nav-logo">Move to <span>Fish Hawk</span></a>
+  <ul class="nav-links">
+    <li><a href="movetofishhawk.html#about">About</a></li>
+    <li><a href="movetofishhawk.html#outdoors">Outdoors</a></li>
+    <li><a href="movetofishhawk.html#schools">Schools</a></li>
+    <li><a href="movetofishhawk.html#homes">Homes</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="movetofishhawk.html#contact" class="nav-cta">Get In Touch</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <span class="section-tag">The Blog</span>
+  <h1>Local knowledge.<br>Straight talk.</h1>
+  <p>Real information about Fish Hawk — the schools, the market, the outdoors, and what life actually looks like here. Written for people making a serious decision about where to live.</p>
+</div>
+
+<div class="blog-layout">
+  <main class="blog-list">
+
+    <!-- POST 1 - FULL -->
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-meta">
+          <span class="post-tag">Schools</span>
+          <span class="post-date">March 2026</span>
+          <span class="post-read-time">· 5 min read</span>
+        </div>
+        <h2>Why FishHawk Ranch Is a Parent's Dream: The Schools Say It All</h2>
+        <p class="post-excerpt">In a region where finding one A-rated public school in your zone is considered a win, FishHawk sits in a position most Tampa Bay communities can't match — a complete pipeline of A-rated public schools from Pre-K through 12th grade, most of them either inside the community or within a couple miles of it.</p>
+        <button class="post-read-more" onclick="togglePost(this)">Read the full post →</button>
+      </div>
+
+      <div class="post-full">
+        <div class="post-full-body">
+
+          <p>If you've ever talked to someone who moved to FishHawk Ranch, it usually doesn't take long before the conversation turns to the schools. In a region where finding one A-rated public school in your zone is considered a win, FishHawk sits in a position most Tampa Bay communities can't match — a complete pipeline of A-rated public schools from Pre-K through 12th grade, most of them either inside the community or within a couple miles of it.</p>
+
+          <h3>The Elementary Schools: Where It All Starts</h3>
+          <p>FishHawk is served by two elementary schools within its community borders, and both carry serious academic reputations.</p>
+          <p><strong>Bevis Elementary School</strong>, located at 5720 Osprey Ridge Drive, sits right inside Phase 2 of FishHawk Ranch and is one of the most decorated public elementary schools in the state. U.S. News ranks Bevis 26th among all elementary schools in Florida, and 91% of students are proficient in math and 86% in reading — well above both Hillsborough County and state averages. The school has earned Blue Ribbon status along with Reading, ESE, and Math Teacher of the Year honors, and has been consistently recognized as a Top Performer on Florida's state assessments. Families in the Osprey Park and surrounding villages can walk their kids to school from a number of streets in the area.</p>
+          <p><strong>FishHawk Creek Elementary</strong>, located at 16815 Dorman Rd off the Dorman Road corridor on the eastern side of the community, serves that portion of FishHawk and carries its own strong reputation as an A-rated school with a GreatSchools score of 8 out of 10.</p>
+          <p>Then there's <strong>Stowers Elementary</strong>, the newest addition, sitting inside FishHawk Ranch West at 13915 Barrington Stowers Drive — a genuine neighborhood school that's walkable, community-oriented, and already earning strong marks.</p>
+
+          <h3>The Middle Schools: Building on a Strong Foundation</h3>
+          <p><strong>Randall Middle School</strong> sits at 16510 FishHawk Blvd, right along the main boulevard on the north side of the road and just next door to Newsome High School. It serves a large portion of the FishHawk community and has consistently held A and high B ratings from the state.</p>
+          <p><strong>Barrington Middle School</strong>, at 5925 Village Center Drive, is tucked inside FishHawk Ranch West alongside Stowers Elementary — giving families in that section of the community a school path from kindergarten through 8th grade without ever really leaving the neighborhood.</p>
+
+          <h3>Newsome High School</h3>
+          <p>Everything in FishHawk feeds into <strong>Joe E. Newsome High School</strong>, located at 16550 FishHawk Blvd — right next door to Randall Middle, making the transition between schools a short walk down the same campus area.</p>
+          <p>Newsome is one of the top high schools in Florida by most measures. U.S. News ranks it 45th in the state, and 72% of students participate in Advanced Placement coursework. In the 2024-25 school year, 81% of 10th-grade students scored proficient or better in English Language Arts, compared to 57% for Hillsborough County and 58% for the state.</p>
+          <p>The school's marching band has performed in the Macy's Thanksgiving Day Parade, and Newsome has received recognition for having an Elite Athletic Program from Hillsborough County. Students also have access to the Bright Futures Scholarship Program, which can cover 75% to 100% of public college tuition at Florida colleges and universities — a meaningful long-term benefit for families thinking about the cost of higher education.</p>
+
+          <h3>The Bigger Picture</h3>
+          <p>FishHawk is one of the very few zones in the Tampa Bay area where every level — elementary, middle, and high school — carries an A-rating, with most schools located either inside the community or within two and a half miles of it.</p>
+          <p>For families relocating to the Tampa area and weighing their options, that kind of consistency across every grade level is genuinely hard to find. When people describe FishHawk as a community built for families, the school system is a big part of what they're pointing to.</p>
+
+          <button class="post-collapse" onclick="togglePost(this)">↑ Collapse post</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- COMING SOON POSTS -->
+    <article class="post-card-coming">
+      <div class="post-meta">
+        <span class="post-tag">Real Estate</span>
+      </div>
+      <h2>FishHawk Ranch vs. Fish Hawk Trails — Which Is Right for You?</h2>
+      <p>The master-planned amenities of FishHawk Ranch or the larger lots and privacy of Fish Hawk Trails? Both share the same A-rated school zone, but the lifestyle is meaningfully different. Here's how to decide.</p>
+      <span class="coming-badge">Coming Soon</span>
+    </article>
+
+    <article class="post-card-coming">
+      <div class="post-meta">
+        <span class="post-tag">Outdoors</span>
+      </div>
+      <h2>Everything You Can Do on the Alafia River Without Getting on the Highway</h2>
+      <p>Kayaking, swimming, hiking, and fishing — the Alafia River corridor is one of the most underrated outdoor resources in all of Tampa Bay. And most of it is minutes from your front door.</p>
+      <span class="coming-badge">Coming Soon</span>
+    </article>
+
+    <article class="post-card-coming">
+      <div class="post-meta">
+        <span class="post-tag">VA Loans</span>
+      </div>
+      <h2>Why Military Families Keep Choosing Fish Hawk</h2>
+      <p>The commute to MacDill, the A-rated schools, the VA loan landscape, and the community feel — here's why Fish Hawk keeps showing up on military relocation lists year after year.</p>
+      <span class="coming-badge">Coming Soon</span>
+    </article>
+
+    <article class="post-card-coming">
+      <div class="post-meta">
+        <span class="post-tag">Market</span>
+      </div>
+      <h2>What Does $500k Actually Buy You in Fish Hawk Right Now?</h2>
+      <p>A look at what's on the market, what's moved recently, and what different price points get you across FishHawk Ranch, Fish Hawk Trails, and the surrounding rural areas.</p>
+      <span class="coming-badge">Coming Soon</span>
+    </article>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-box sidebar-cta">
+      <h4>Mortgage questions?</h4>
+      <p>Josh High at Swift Home Mortgage knows the Fish Hawk market inside and out — including VA loans for military families.</p>
+      <a href="movetofishhawk.html#contact" class="sidebar-cta-btn">Get In Touch</a>
+    </div>
+
+    <div class="sidebar-box">
+      <h4>Topics</h4>
+      <div class="sidebar-topics">
+        <div class="sidebar-topic">Schools <span class="sidebar-topic-count">1</span></div>
+        <div class="sidebar-topic">Real Estate <span class="sidebar-topic-count">Coming</span></div>
+        <div class="sidebar-topic">Outdoors <span class="sidebar-topic-count">Coming</span></div>
+        <div class="sidebar-topic">VA Loans <span class="sidebar-topic-count">Coming</span></div>
+        <div class="sidebar-topic">Market Updates <span class="sidebar-topic-count">Coming</span></div>
+      </div>
+    </div>
+
+    <div class="sidebar-box">
+      <h4>Explore Fish Hawk</h4>
+      <div class="sidebar-links">
+        <a href="movetofishhawk.html#about" class="sidebar-link">→ About Fish Hawk</a>
+        <a href="movetofishhawk.html#outdoors" class="sidebar-link">→ Outdoors & Nature</a>
+        <a href="movetofishhawk.html#equestrian" class="sidebar-link">→ Equestrian Living</a>
+        <a href="movetofishhawk.html#schools" class="sidebar-link">→ Schools Guide</a>
+        <a href="movetofishhawk.html#homes" class="sidebar-link">→ Homes & Real Estate</a>
+        <a href="movetofishhawk.html#faq" class="sidebar-link">→ FAQ</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-left">
+      <div class="footer-logo">Move to <span>Fish Hawk</span></div>
+      <p>An independent guide to Fish Hawk, Lithia FL — a census-designated place in Hillsborough County. Helping families make well-informed decisions about one of Tampa Bay's most unique communities.</p>
+      <p style="margin-top:10px;">Mortgage questions? <a href="https://www.swifthomemortgage.com" target="_blank" style="color:var(--gold-light);text-decoration:none;font-weight:500;">Swift Home Mortgage</a> &nbsp;·&nbsp; (813) 606-4255</p>
+    </div>
+    <div class="footer-right">
+      <span style="font-size:0.65rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;">Equal Housing Opportunity</span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Copyright &copy;2026 | Swift Home Mortgage | NMLS# 1762673 | Licensed to Do Business in the State of FL | <a href="https://www.nmlsconsumeraccess.org/" target="_blank">NMLS Consumer Access Portal</a> | <a href="https://www.swifthomemortgage.com/privacy-policy/" target="_blank">Privacy Policy</a> | <a href="#">Site Accessibility</a></p>
+  </div>
+</footer>
+
+<script>
+function togglePost(btn) {
+  const card = btn.closest('.post-card');
+  const fullPost = card.querySelector('.post-full');
+  const isOpen = fullPost.classList.contains('open');
+  if (isOpen) {
+    fullPost.classList.remove('open');
+    const readMoreBtn = card.querySelector('.post-read-more');
+    if (readMoreBtn) readMoreBtn.textContent = 'Read the full post →';
+  } else {
+    fullPost.classList.add('open');
+    const readMoreBtn = card.querySelector('.post-read-more');
+    if (readMoreBtn) readMoreBtn.textContent = 'Collapse ↑';
+  }
+}
+</script>
+</body>
+</html>
