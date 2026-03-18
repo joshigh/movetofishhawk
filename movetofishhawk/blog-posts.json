@@ -7,5 +7,14 @@
     "category": "Finances",
     "thumbnail": "trail.png",
     "featured": true
+  },
+  {
+    "title": "Why Military Families Keep Choosing Fish Hawk",
+    "slug": "military-families-fish-hawk",
+    "date": "2026-03-18",
+    "excerpt": "MacDill AFB families have been settling in Fish Hawk for years. Here's what makes it work — the commute, the schools, the VA loan math, and the community that tends to keep people here.",
+    "category": "Military & VA Loans",
+    "thumbnail": "osprey.png",
+    "featured": false
   }
 ]
