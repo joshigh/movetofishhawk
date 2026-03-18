@@ -84,7 +84,7 @@
           <div>
             <div style="font-size: 1.6rem; margin-bottom: 8px;">✉️</div>
             <p style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 4px;">Email</p>
-            <a href="mailto:josh@swifthm.com" style="color: var(--text-mid); font-size: 0.95rem;">josh@swifthm.com</a>
+            <a href="/cdn-cgi/l/email-protection#573d38243f1724203e31233f3a7934383a" style="color: var(--text-mid); font-size: 0.95rem;"><span class="__cf_email__" data-cfemail="3852574b50784b4f515e4c5055165b5755">[email&#160;protected]</span></a>
           </div>
           <div>
             <div style="font-size: 1.6rem; margin-bottom: 8px;">📍</div>
@@ -106,9 +106,7 @@
         <p class="footer-contact">Mortgage questions? <a href="https://www.swifthm.com" target="_blank" rel="noopener">Swift Home Mortgage</a> &middot; <a href="tel:8136064255">(813) 606-4255</a></p>
       </div>
       <div class="footer-eho">
-        <div style="width:60px;height:60px;border:2px solid rgba(247,244,238,0.4);border-radius:4px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;">
-          <span style="color:rgba(247,244,238,0.5);font-size:1.4rem;">⌂</span>
-        </div>
+        <img src="/images/eho-logo.png" alt="Equal Housing Opportunity" />
         <p>Equal Housing<br>Opportunity</p>
       </div>
       <div class="footer-legal">
@@ -125,7 +123,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Show success state if redirected back with ?success=true
     if (window.location.search.includes('success=true')) {
       document.getElementById('contact-form').style.display = 'none';
@@ -144,14 +142,4 @@
         return;
       }
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        e.preventDefault();
-        alert('Please enter a valid email address.');
-        return;
-      }
-    });
-  </script>
-
-</body>
-</html>
+  
