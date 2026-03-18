@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fish Hawk Ranch Blog | Guides, Tips &amp; Neighborhood Insights</title>
+  <meta name="description" content="In-depth articles about Fish Hawk Ranch in Lithia, FL — home costs, school zones, VA loans, commute times, and what life here actually looks like." />
+  <link rel="canonical" href="https://www.movetofishhawk.com/blog.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Fish Hawk Ranch Blog | Guides &amp; Neighborhood Insights" />
+  <meta property="og:description" content="In-depth articles about life in Fish Hawk Ranch — home costs, schools, VA loans, and relocation guides." />
+  <meta property="og:url" content="https://www.movetofishhawk.com/blog.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .blog-filters {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .filter-btn {
+      padding: 8px 20px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: transparent;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: var(--green-dark);
+      border-color: var(--green-dark);
+      color: var(--cream);
+    }
+
+    .featured-post {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background-color: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 64px;
+    }
+
+    .featured-post-image {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: cover;
+    }
+
+    .featured-post-image-placeholder {
+      width: 100%;
+      min-height: 360px;
+      background-color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .featured-post-body {
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .featured-post-body h2 {
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .featured-post-body h2 a {
+      color: var(--green-dark);
+      text-decoration: none;
+    }
+
+    .featured-post-body h2 a:hover {
+      color: var(--gold);
+    }
+
+    .featured-post-body p {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 768px) {
+      .featured-post {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-post-image,
+      .featured-post-image-placeholder {
+        min-height: 240px;
+      }
+
+      .featured-post-body {
+        padding: 28px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Move to <span>Fish Hawk</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('open'); document.getElementById('nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog.html" class="active">Blog</a></li>
+        <li><a href="/contact.html" class="nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <h1>Fish Hawk Ranch Blog</h1>
+    <p>Guides, research, and local insight for anyone considering a move to Fish Hawk Ranch in Lithia, FL.</p>
+  </header>
+
+  <!-- BLOG CONTENT -->
+  <main>
+    <section class="section section--cream">
+      <div class="container">
+
+        <!-- Featured post -->
+        <div id="featured-post-wrap"></div>
+
+        <!-- Category filters -->
+        <div class="blog-filters" id="category-filters">
+          <button class="filter-btn active" data-category="all">All</button>
+        </div>
+
+        <!-- All posts grid -->
+        <div class="blog-grid" id="blog-grid">
+          <div class="loading-state">Loading articles...</div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Move to <span>Fish Hawk</span></h3>
+        <p>An independent guide to Fish Hawk Ranch, Lithia FL — a census-designated place in Hillsborough County. Helping families make well-informed decisions about one of Tampa Bay's most unique communities.</p>
+        <p class="footer-contact">Mortgage questions? <a href="https://www.swifthm.com" target="_blank" rel="noopener">Swift Home Mortgage</a> &middot; <a href="tel:8136064255">(813) 606-4255</a></p>
+      </div>
+      <div class="footer-eho">
+        <div style="width:60px;height:60px;border:2px solid rgba(247,244,238,0.4);border-radius:4px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;">
+          <span style="color:rgba(247,244,238,0.5);font-size:1.4rem;">⌂</span>
+        </div>
+        <p>Equal Housing<br>Opportunity</p>
+      </div>
+      <div class="footer-legal">
+        <p>Copyright &copy;2026 | Swift Home Mortgage<br>
+        NMLS# 1762673 | Licensed to Do Business in the State of FL</p>
+        <p style="margin-top:8px;">
+          <a href="#" id="nmls-link">NMLS Consumer Access Portal</a>
+          <span class="divider">|</span>
+          <a href="/privacy.html">Privacy Policy</a>
+          <span class="divider">|</span>
+          <a href="/accessibility.html">Site Accessibility</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let allPosts = [];
+    let activeCategory = 'all';
+
+    async function loadBlog() {
+      try {
+        const res = await fetch('/blog-posts.json');
+        allPosts = await res.json();
+        allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        buildFilters();
+        renderFeatured();
+        renderGrid('all');
+      } catch (err) {
+        document.getElementById('blog-grid').innerHTML = '<p class="no-posts">Articles coming soon.</p>';
+      }
+    }
+
+    function buildFilters() {
+      const categories = ['all', ...new Set(allPosts.map(p => p.category))];
+      const container = document.getElementById('category-filters');
+      container.innerHTML = categories.map(cat => `
+        <button class="filter-btn ${cat === 'all' ? 'active' : ''}" data-category="${cat}">
+          ${cat === 'all' ? 'All' : cat}
+        </button>
+      `).join('');
+
+      container.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeCategory = btn.dataset.category;
+          container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderGrid(activeCategory);
+        });
+      });
+    }
+
+    function renderFeatured() {
+      const featured = allPosts.find(p => p.featured);
+      if (!featured) return;
+
+      const wrap = document.getElementById('featured-post-wrap');
+      wrap.innerHTML = `
+        <article class="featured-post">
+          ${featured.thumbnail
+            ? `<img src="/images/${featured.thumbnail}" alt="${featured.title}" class="featured-post-image" loading="eager" />`
+            : `<div class="featured-post-image-placeholder">🌿</div>`
+          }
+          <div class="featured-post-body">
+            <span class="featured-label">Featured &mdash; ${featured.category}</span>
+            <h2><a href="/posts/${featured.slug}.html">${featured.title}</a></h2>
+            <p>${featured.excerpt}</p>
+            <div class="blog-card-meta" style="margin-bottom: 20px;">
+              <span class="blog-card-date">${formatDate(featured.date)}</span>
+            </div>
+            <a href="/posts/${featured.slug}.html" class="btn btn-outline-dark">Read Article</a>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderGrid(category) {
+      const grid = document.getElementById('blog-grid');
+      const filtered = category === 'all'
+        ? allPosts
+        : allPosts.filter(p => p.category === category);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<p class="no-posts">No articles in this category yet.</p>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(post => `
+        <article class="blog-card">
+          ${post.thumbnail
+            ? `<img src="/images/${post.thumbnail}" alt="${post.title}" class="blog-card-image" loading="lazy" />`
+            : `<div class="blog-card-image-placeholder">🌿</div>`
+          }
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">${post.category}</span>
+              <span class="blog-card-date">${formatDate(post.date)}</span>
+            </div>
+            <h3><a href="/posts/${post.slug}.html">${post.title}</a></h3>
+            <p>${post.excerpt}</p>
+            <a href="/posts/${post.slug}.html" class="blog-card-link">Read Article</a>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    loadBlog();
+  </script>
+
+</body>
+</html>

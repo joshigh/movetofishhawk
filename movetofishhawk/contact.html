@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Move to Fish Hawk Ranch</title>
+  <meta name="description" content="Get in touch with Swift Home Mortgage. Questions about buying a home in Fish Hawk Ranch, VA loans, or refinancing in Lithia, FL." />
+  <link rel="canonical" href="https://www.movetofishhawk.com/contact.html" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">Move to <span>Fish Hawk</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="this.classList.toggle('open'); document.getElementById('nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/contact.html" class="nav-cta active">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <h1>Get in Touch</h1>
+    <p>Questions about buying in Fish Hawk Ranch, mortgage options, or anything else — send a message and Josh will get back to you directly.</p>
+  </header>
+
+  <!-- CONTACT FORM -->
+  <main>
+    <section class="section section--cream">
+      <div class="container">
+        <div class="contact-form-wrap">
+
+          <!-- Success message (hidden by default) -->
+          <div id="form-success" style="display:none; text-align:center; padding: 40px 0;">
+            <div style="font-size: 2.5rem; margin-bottom: 16px;">✓</div>
+            <h3 style="color: var(--green-dark); margin-bottom: 12px;">Message received</h3>
+            <p style="color: var(--text-light);">Josh will follow up at the email address you provided, usually within one business day.</p>
+            <a href="/" class="btn btn-outline-dark" style="margin-top: 24px;">Back to Home</a>
+          </div>
+
+          <!-- The form -->
+          <form id="contact-form" name="contact" method="POST" data-netlify="true" action="/contact.html?success=true" novalidate>
+            <input type="hidden" name="form-name" value="contact" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="jane@email.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(813) 555-0100" />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Question</label>
+              <textarea id="message" name="message" placeholder="What can we help you with?" required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">Send Message</button>
+            <p class="form-note">Your information is never shared or sold. This form connects directly to Swift Home Mortgage (NMLS# 1762673).</p>
+          </form>
+        </div>
+
+        <!-- Contact details below form -->
+        <div style="max-width: 680px; margin: 48px auto 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; text-align: center;">
+          <div>
+            <div style="font-size: 1.6rem; margin-bottom: 8px;">📞</div>
+            <p style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 4px;">Phone</p>
+            <a href="tel:8136064255" style="color: var(--text-mid); font-size: 0.95rem;">(813) 606-4255</a>
+          </div>
+          <div>
+            <div style="font-size: 1.6rem; margin-bottom: 8px;">✉️</div>
+            <p style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 4px;">Email</p>
+            <a href="mailto:josh@swifthm.com" style="color: var(--text-mid); font-size: 0.95rem;">josh@swifthm.com</a>
+          </div>
+          <div>
+            <div style="font-size: 1.6rem; margin-bottom: 8px;">📍</div>
+            <p style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-dark); margin-bottom: 4px;">Location</p>
+            <p style="color: var(--text-mid); font-size: 0.95rem; margin-bottom: 0;">Brandon, FL</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Move to <span>Fish Hawk</span></h3>
+        <p>An independent guide to Fish Hawk Ranch, Lithia FL — a census-designated place in Hillsborough County. Helping families make well-informed decisions about one of Tampa Bay's most unique communities.</p>
+        <p class="footer-contact">Mortgage questions? <a href="https://www.swifthm.com" target="_blank" rel="noopener">Swift Home Mortgage</a> &middot; <a href="tel:8136064255">(813) 606-4255</a></p>
+      </div>
+      <div class="footer-eho">
+        <div style="width:60px;height:60px;border:2px solid rgba(247,244,238,0.4);border-radius:4px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;">
+          <span style="color:rgba(247,244,238,0.5);font-size:1.4rem;">⌂</span>
+        </div>
+        <p>Equal Housing<br>Opportunity</p>
+      </div>
+      <div class="footer-legal">
+        <p>Copyright &copy;2026 | Swift Home Mortgage<br>
+        NMLS# 1762673 | Licensed to Do Business in the State of FL</p>
+        <p style="margin-top:8px;">
+          <a href="#" id="nmls-link">NMLS Consumer Access Portal</a>
+          <span class="divider">|</span>
+          <a href="/privacy.html">Privacy Policy</a>
+          <span class="divider">|</span>
+          <a href="/accessibility.html">Site Accessibility</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Show success state if redirected back with ?success=true
+    if (window.location.search.includes('success=true')) {
+      document.getElementById('contact-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+
+    // Client-side validation
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        e.preventDefault();
+        alert('Please fill in your name, email, and message before submitting.');
+        return;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        e.preventDefault();
+        alert('Please enter a valid email address.');
+        return;
+      }
+    });
+  </script>
+
+</body>
+</html>
