@@ -16,5 +16,14 @@
     "category": "Military & VA Loans",
     "thumbnail": "osprey.png",
     "featured": false
+  },
+  {
+    "title": "Fish Hawk Schools: A Complete Pipeline of A-Rated Public Schools",
+    "slug": "fish-hawk-schools-guide",
+    "date": "2026-03-18",
+    "excerpt": "In a region where finding one A-rated public school in your zone is considered a win, Fish Hawk sits in a position most Tampa Bay communities can't match — a complete pipeline from Pre-K through 12th grade.",
+    "category": "Schools",
+    "thumbnail": "trail.png",
+    "featured": false
   }
 ]
