@@ -3,33 +3,541 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fish Hawk Neighborhoods Guide | Move to Fish Hawk</title>
-  <meta name="description" content="A guide to the neighborhoods within Fish Hawk in Lithia, FL — Fish Hawk Ranch, Fish Hawk Trails, Fish Hawk Ranch West, and more." />
-  <meta name="robots" content="noindex" />
+  <title>Fish Hawk Neighborhoods Guide | Lithia FL Communities</title>
+  <meta name="description" content="A complete guide to the neighborhoods and communities within Fish Hawk in Lithia, FL — Fish Hawk Ranch, Fish Hawk Trails, Hawkstone, Channing Park, and more. Prices, property types, CDD fees, and school zones." />
+  <meta name="keywords" content="Fish Hawk neighborhoods, Lithia FL communities, Fish Hawk Ranch, Fish Hawk Trails, Hawkstone Lithia, Channing Park, River Hills Lithia" />
   <link rel="canonical" href="https://www.movetofishhawk.com/neighborhoods.html" />
+  <meta property="og:title" content="Fish Hawk Neighborhoods Guide | Lithia FL Communities" />
+  <meta property="og:description" content="A complete guide to neighborhoods within Fish Hawk in Lithia, FL — prices, property types, CDD fees, and school zones." />
+  <meta property="og:url" content="https://www.movetofishhawk.com/neighborhoods.html" />
+  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .neighborhood-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      margin-bottom: 24px;
+    }
+    .neighborhood-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .neighborhood-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--green-dark);
+      margin-bottom: 4px;
+    }
+    .neighborhood-card-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-light);
+    }
+    .neighborhood-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .neighborhood-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .tag-green { background-color: #e8f5e9; color: #2e7d32; }
+    .tag-gold  { background-color: #fef3e2; color: #b06000; }
+    .tag-blue  { background-color: #e3f2fd; color: #1565c0; }
+    .tag-gray  { background-color: var(--cream-dark); color: var(--text-light); }
+    .neighborhood-card p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+      margin-bottom: 0;
+    }
+    .neighborhood-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+      padding: 20px;
+      background: var(--cream);
+      border-radius: var(--radius);
+    }
+    .neighborhood-stat { text-align: center; }
+    .neighborhood-stat-value {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--green-dark);
+      display: block;
+    }
+    .neighborhood-stat-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .comparison-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 64px;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: var(--white);
+      min-width: 700px;
+    }
+    .comparison-table thead {
+      background-color: var(--green-dark);
+      color: var(--cream);
+    }
+    .comparison-table thead th {
+      padding: 14px 16px;
+      text-align: left;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .comparison-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .comparison-table tbody tr:last-child { border-bottom: none; }
+    .comparison-table tbody tr:hover { background-color: var(--cream); }
+    .comparison-table td {
+      padding: 12px 16px;
+      color: var(--text-mid);
+      vertical-align: middle;
+    }
+    .comparison-table td:first-child {
+      font-weight: 600;
+      color: var(--green-dark);
+      white-space: nowrap;
+    }
+    .check   { color: #2e7d32; font-weight: 700; }
+    .cross   { color: #c62828; font-weight: 700; }
+    .partial { color: #b06000; font-weight: 700; }
+    .choose-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .choose-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .choose-card h4 { font-size: 1rem; margin-bottom: 10px; color: var(--green-dark); }
+    .choose-card p { font-size: 0.88rem; color: var(--text-light); margin-bottom: 0; line-height: 1.7; }
+    .zip-note {
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-bottom: 48px;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+    @media (max-width: 768px) {
+      .neighborhood-card-header { flex-direction: column; }
+      .neighborhood-stats { grid-template-columns: repeat(2, 1fr); }
+      .choose-grid { grid-template-columns: 1fr; }
+      .neighborhood-card { padding: 24px 20px; }
+    }
+  </style>
 </head>
 <body>
 
   <div id="nav-placeholder"></div>
 
   <header class="page-header">
-    <h1>Fish Hawk Neighborhoods</h1>
-    <p>A guide to the distinct communities within Fish Hawk is coming soon.</p>
+    <h1>Fish Hawk Neighborhoods Guide</h1>
+    <p>The communities within Fish Hawk in Lithia, FL — prices, property types, CDD fees, and what makes each one different.</p>
   </header>
 
   <main>
     <section class="section section--cream">
-      <div class="container" style="max-width: 720px; text-align: center;">
-        <p>This page will cover Fish Hawk Ranch, Fish Hawk Trails, Fish Hawk Ranch West, and the surrounding area — including price ranges, community character, amenities, and HOA/CDD differences between each.</p>
-        <p>In the meantime, feel free to reach out with any specific questions.</p>
-        <a href="/contact.html" class="btn btn-outline-dark">Get in Touch</a>
+      <div class="container">
+
+        <div style="max-width: 760px; margin-bottom: 48px;">
+          <p>Fish Hawk is not a single neighborhood — it's a census-designated place made up of several distinct communities, each with its own developer history, price point, amenity structure, and character. Some carry CDD fees; some don't. Some are gated; most aren't. Understanding the differences matters before you start shopping, because the monthly cost and lifestyle experience vary meaningfully from one community to the next.</p>
+          <p>The table below gives you a quick comparison. The write-ups that follow give you the full picture on each community.</p>
+        </div>
+
+        <div class="zip-note">
+          <strong>Note on zip codes:</strong> Most Fish Hawk communities use zip code 33547. Hawkstone uses 33579. If you're searching real estate sites by zip code, search both to avoid missing listings. School zone assignment is by address regardless of zip code — always verify through the <a href="https://www.hillsboroughschools.org/schoollocator" target="_blank" rel="noopener">HCPS School Locator</a>.
+        </div>
+
+        <!-- COMPARISON TABLE -->
+        <div class="comparison-table-wrap">
+          <table class="comparison-table" aria-label="Fish Hawk neighborhood comparison">
+            <thead>
+              <tr>
+                <th>Community</th>
+                <th>Built</th>
+                <th>Price Range</th>
+                <th>CDD Fee</th>
+                <th>Gated</th>
+                <th>55+ Option</th>
+                <th>High School Zone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fish Hawk Ranch</td>
+                <td>1999–present</td>
+                <td>$325K–$2.8M</td>
+                <td><span class="check">Yes</span></td>
+                <td><span class="partial">Some sections</span></td>
+                <td><span class="check">Encore (55+)</span></td>
+                <td>Newsome</td>
+              </tr>
+              <tr>
+                <td>Fish Hawk Ranch West</td>
+                <td>2010–present</td>
+                <td>$400K–$700K+</td>
+                <td><span class="check">Yes</span></td>
+                <td><span class="partial">Some sections</span></td>
+                <td><span class="check">Encore (55+)</span></td>
+                <td>Newsome</td>
+              </tr>
+              <tr>
+                <td>The Preserve</td>
+                <td>2015–present</td>
+                <td>$450K–$700K</td>
+                <td><span class="check">Yes</span></td>
+                <td><span class="cross">No</span></td>
+                <td><span class="cross">No</span></td>
+                <td>Newsome</td>
+              </tr>
+              <tr>
+                <td>Starling at Fish Hawk</td>
+                <td>2016–present</td>
+                <td>$450K–$650K</td>
+                <td><span class="check">Yes</span></td>
+                <td><span class="cross">No</span></td>
+                <td><span class="cross">No</span></td>
+                <td>Newsome</td>
+              </tr>
+              <tr>
+                <td>Fish Hawk Trails</td>
+                <td>1990s</td>
+                <td>$600K–$2M+</td>
+                <td><span class="cross">No</span></td>
+                <td><span class="check">Yes, 24/7</span></td>
+                <td><span class="cross">No</span></td>
+                <td>Newsome</td>
+              </tr>
+              <tr>
+                <td>Channing Park</td>
+                <td>2010s</td>
+                <td>$400K–$650K</td>
+                <td><span class="cross">No</span></td>
+                <td><span class="cross">No</span></td>
+                <td><span class="cross">No</span></td>
+                <td>Newsome</td>
+              </tr>
+              <tr>
+                <td>Encore at Fish Hawk Ranch</td>
+                <td>2016–present</td>
+                <td>$450K–$650K</td>
+                <td><span class="check">Yes</span></td>
+                <td><span class="check">Yes</span></td>
+                <td><span class="check">55+ Only</span></td>
+                <td>Newsome</td>
+              </tr>
+              <tr>
+                <td>Hawkstone</td>
+                <td>2019–present</td>
+                <td>$380K–$800K</td>
+                <td><span class="check">Yes</span></td>
+                <td><span class="partial">Artisan section</span></td>
+                <td><span class="cross">No</span></td>
+                <td>Newsome</td>
+              </tr>
+              <tr>
+                <td>River Hills</td>
+                <td>1990s–2000s</td>
+                <td>$400K–$800K+</td>
+                <td><span class="cross">No</span></td>
+                <td><span class="partial">Some sections</span></td>
+                <td><span class="cross">No</span></td>
+                <td>Verify by address</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- NEIGHBORHOOD PROFILES -->
+        <span class="section-label">Community Profiles</span>
+        <h2 class="section-title" style="margin-bottom: 32px;">The neighborhoods in detail</h2>
+
+        <div class="neighborhood-card">
+          <div class="neighborhood-card-header">
+            <div>
+              <div class="neighborhood-card-title">Fish Hawk Ranch</div>
+              <div class="neighborhood-card-subtitle">Lithia, FL 33547 &middot; Developed by Newland Communities</div>
+            </div>
+            <div class="neighborhood-tags">
+              <span class="neighborhood-tag tag-gold">CDD Fee</span>
+              <span class="neighborhood-tag tag-green">A-Rated Schools</span>
+              <span class="neighborhood-tag tag-blue">Master-Planned</span>
+            </div>
+          </div>
+          <div class="neighborhood-stats">
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">1999</span><span class="neighborhood-stat-label">First Built</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">$325K–$2.8M</span><span class="neighborhood-stat-label">Price Range</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">~$550K</span><span class="neighborhood-stat-label">Median Price</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">37 Villages</span><span class="neighborhood-stat-label">Sub-communities</span></div>
+          </div>
+          <p>The original and largest master-planned community in the area, Fish Hawk Ranch was developed by Newland Communities on roughly 3,000 acres of former ranch land beginning in the late 1990s. It's organized into 37 named villages or subdivisions, each with its own character, lot sizes, and price points. The housing mix is wide — two-bedroom townhomes and villas at the entry level, traditional single-family homes throughout the middle of the market, and custom luxury estates in gated sections like Chapman Crossing at the top end. As of early 2026 the median sale price sits around $550,000, with the full range running from the mid-$300,000s to nearly $2.8 million. The community carries both HOA and CDD fees that vary by subdivision and should be verified at the address level before making a purchase decision. Residents have access to over 25 miles of paved trails, multiple pools and fitness centers, sports courts, a skate park, a movie theater, and Park Square Town Center. All six A-rated public schools either sit within or immediately adjacent to the community, which remains the primary draw for most families.</p>
+        </div>
+
+        <div class="neighborhood-card">
+          <div class="neighborhood-card-header">
+            <div>
+              <div class="neighborhood-card-title">Fish Hawk Ranch West</div>
+              <div class="neighborhood-card-subtitle">Lithia, FL 33547 &middot; Expansion of Fish Hawk Ranch</div>
+            </div>
+            <div class="neighborhood-tags">
+              <span class="neighborhood-tag tag-gold">CDD Fee</span>
+              <span class="neighborhood-tag tag-green">A-Rated Schools</span>
+              <span class="neighborhood-tag tag-blue">55+ Option</span>
+            </div>
+          </div>
+          <div class="neighborhood-stats">
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">2010</span><span class="neighborhood-stat-label">First Built</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">$400K–$700K+</span><span class="neighborhood-stat-label">Price Range</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">Newer Builds</span><span class="neighborhood-stat-label">Construction</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">Stowers / Barrington</span><span class="neighborhood-stat-label">Zone Schools</span></div>
+          </div>
+          <p>The western expansion of Fish Hawk Ranch, developed in phases beginning around 2010, this section has a slightly newer feel than the original community and is where Stowers Elementary and Barrington Middle School are located. Homes here tend to be larger and more recently built, with many four and five-bedroom floor plans by builders including ICI, David Weekley, and Homes by WestBay. Resale prices generally run from the low $400,000s into the $700,000s, with newer construction pushing higher. Fish Hawk Ranch West is also where Encore, the area's dedicated 55+ community, is located — a gated David Weekley development of 240 single-story homes with its own private clubhouse. CDD and HOA fees apply here as in the original community, and residents share access to Fish Hawk Ranch's full amenity network.</p>
+        </div>
+
+        <div class="neighborhood-card">
+          <div class="neighborhood-card-header">
+            <div>
+              <div class="neighborhood-card-title">The Preserve at Fish Hawk Ranch</div>
+              <div class="neighborhood-card-subtitle">Lithia, FL 33547 &middot; Conservation setting within Fish Hawk Ranch</div>
+            </div>
+            <div class="neighborhood-tags">
+              <span class="neighborhood-tag tag-gold">CDD Fee</span>
+              <span class="neighborhood-tag tag-green">A-Rated Schools</span>
+              <span class="neighborhood-tag tag-gray">Conservation Views</span>
+            </div>
+          </div>
+          <div class="neighborhood-stats">
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">~2015</span><span class="neighborhood-stat-label">First Built</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">$450K–$700K</span><span class="neighborhood-stat-label">Price Range</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">Single-Family</span><span class="neighborhood-stat-label">Property Type</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">Newsome</span><span class="neighborhood-stat-label">High School</span></div>
+          </div>
+          <p>A newer addition to the Fish Hawk Ranch family, The Preserve was built on land that was previously undeveloped wildlife habitat, giving it a more tucked-away feel than the original community. Conservation lot views are common here, and the neighborhood attracts buyers who want newer construction with a quieter setting within the Fish Hawk Ranch amenity system. Homes are predominantly single-family, built primarily from the mid-2010s onward, priced from roughly the $450,000s to the $700,000s depending on size and lot position. CDD and HOA fees apply, and residents share access to Fish Hawk Ranch amenities and the same A-rated school zones.</p>
+        </div>
+
+        <div class="neighborhood-card">
+          <div class="neighborhood-card-header">
+            <div>
+              <div class="neighborhood-card-title">Starling at Fish Hawk Ranch</div>
+              <div class="neighborhood-card-subtitle">Lithia, FL 33547 &middot; Newer phase of Fish Hawk Ranch</div>
+            </div>
+            <div class="neighborhood-tags">
+              <span class="neighborhood-tag tag-gold">CDD Fee</span>
+              <span class="neighborhood-tag tag-green">A-Rated Schools</span>
+              <span class="neighborhood-tag tag-blue">New Construction Era</span>
+            </div>
+          </div>
+          <div class="neighborhood-stats">
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">~2016</span><span class="neighborhood-stat-label">First Built</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">$450K–$650K</span><span class="neighborhood-stat-label">Price Range</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">Single-Family</span><span class="neighborhood-stat-label">Property Type</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">Newsome</span><span class="neighborhood-stat-label">High School</span></div>
+          </div>
+          <p>Also developed on formerly undeveloped land, Starling is one of the newer sections of the Fish Hawk Ranch footprint, with construction running through the late 2010s and into the early 2020s. Homes are generally newer single-family builds priced from the mid-$400,000s to the upper $600,000s. The community has a more straightforward suburban layout compared to the winding, tree-canopied streets of the original Fish Hawk Ranch, but it shares the same amenity network, school zones, and CDD structure. It's a solid option for buyers who want relatively recent construction within the Fish Hawk Ranch umbrella at a somewhat more accessible price point than the original community's resale market.</p>
+        </div>
+
+        <div class="neighborhood-card">
+          <div class="neighborhood-card-header">
+            <div>
+              <div class="neighborhood-card-title">Fish Hawk Trails</div>
+              <div class="neighborhood-card-subtitle">Lithia, FL 33547 &middot; Separate gated community, no CDD</div>
+            </div>
+            <div class="neighborhood-tags">
+              <span class="neighborhood-tag tag-green">No CDD Fee</span>
+              <span class="neighborhood-tag tag-green">Gated 24/7</span>
+              <span class="neighborhood-tag tag-gray">Luxury &amp; Custom</span>
+            </div>
+          </div>
+          <div class="neighborhood-stats">
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">1990s</span><span class="neighborhood-stat-label">First Built</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">$600K–$2M+</span><span class="neighborhood-stat-label">Price Range</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">~$937K</span><span class="neighborhood-stat-label">Avg. Sale Price</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">2,200–6,000 SF</span><span class="neighborhood-stat-label">Home Size Range</span></div>
+          </div>
+          <p>Fish Hawk Trails is a distinct and notably different community from Fish Hawk Ranch — built in the 1990s by a separate developer, fully gated with 24/7 on-site security, and designed around larger lots, custom and semi-custom construction, and a quieter, more private character. Where Fish Hawk Ranch leans into community amenities and organized activity, Fish Hawk Trails emphasizes space, mature tree canopy, and privacy. Homes range from around 2,200 to 6,000 square feet on oversized lots, with current prices running from roughly $600,000 to well over $2 million and an average sale price near $937,000. There is no CDD fee here, which represents meaningful monthly savings compared to Fish Hawk Ranch — a point worth running through the numbers on before comparing the two side by side. Fish Hawk Trails is zoned for Fishhawk Creek or Bevis Elementary, Randall Middle, and Newsome High School.</p>
+        </div>
+
+        <div class="neighborhood-card">
+          <div class="neighborhood-card-header">
+            <div>
+              <div class="neighborhood-card-title">Channing Park</div>
+              <div class="neighborhood-card-subtitle">Lithia, FL 33547 &middot; No CDD fee</div>
+            </div>
+            <div class="neighborhood-tags">
+              <span class="neighborhood-tag tag-green">No CDD Fee</span>
+              <span class="neighborhood-tag tag-green">A-Rated Schools</span>
+              <span class="neighborhood-tag tag-blue">Taylor Morrison Built</span>
+            </div>
+          </div>
+          <div class="neighborhood-stats">
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">2010s</span><span class="neighborhood-stat-label">First Built</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">$400K–$650K</span><span class="neighborhood-stat-label">Price Range</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">Single-Family</span><span class="neighborhood-stat-label">Property Type</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">Newsome</span><span class="neighborhood-stat-label">High School</span></div>
+          </div>
+          <p>Channing Park is a smaller master-planned community within the Fish Hawk area developed primarily by Taylor Morrison in the 2010s. It has a contained, neighborhood feel — more intimate in scale than Fish Hawk Ranch — with its own pool and community amenities. There is no CDD fee, which some buyers find compelling when doing a monthly cost comparison against Fish Hawk Ranch. Prices generally run from the low $400,000s to the mid-$600,000s, and the community is zoned for the A-rated Fish Hawk public schools. Channing Park has a loyal following among families who want the school zone and a well-maintained neighborhood without the full scale and associated fees of Fish Hawk Ranch.</p>
+        </div>
+
+        <div class="neighborhood-card">
+          <div class="neighborhood-card-header">
+            <div>
+              <div class="neighborhood-card-title">Encore at Fish Hawk Ranch</div>
+              <div class="neighborhood-card-subtitle">Lithia, FL 33547 &middot; 55+ Active Adult &middot; Gated</div>
+            </div>
+            <div class="neighborhood-tags">
+              <span class="neighborhood-tag tag-gold">CDD Fee</span>
+              <span class="neighborhood-tag tag-blue">55+ Gated</span>
+              <span class="neighborhood-tag tag-gray">David Weekley Built</span>
+            </div>
+          </div>
+          <div class="neighborhood-stats">
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">2016</span><span class="neighborhood-stat-label">First Built</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">$450K–$650K</span><span class="neighborhood-stat-label">Price Range</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">240 Homes</span><span class="neighborhood-stat-label">Community Size</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">Single-Story Only</span><span class="neighborhood-stat-label">Floor Plans</span></div>
+          </div>
+          <p>Encore is a gated 55+ active adult community of 240 single-family homes built by David Weekley, located within the Fish Hawk Ranch West section. All homes are single-story, built from around 2016 onward, with low-maintenance exteriors and open floor plans designed for easy living. Residents have their own private clubhouse — the Oasis Lifestyle Club — with fitness facilities, a game room, and an on-site activities director, while also having access to select Fish Hawk Ranch master amenities. Prices typically run from the mid-$400,000s to the upper $600,000s. Encore is one of the very few age-restricted options in the immediate Fish Hawk area, making it the natural first stop for downsizing buyers or retirees who want the community feel and school-zone neighborhood character without an all-ages development around them.</p>
+        </div>
+
+        <div class="neighborhood-card">
+          <div class="neighborhood-card-header">
+            <div>
+              <div class="neighborhood-card-title">Hawkstone</div>
+              <div class="neighborhood-card-subtitle">Lithia, FL 33579 &middot; Note: different zip code than most Fish Hawk communities</div>
+            </div>
+            <div class="neighborhood-tags">
+              <span class="neighborhood-tag tag-gold">CDD Fee</span>
+              <span class="neighborhood-tag tag-green">New Construction</span>
+              <span class="neighborhood-tag tag-gray">Zip Code 33579</span>
+            </div>
+          </div>
+          <div class="neighborhood-stats">
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">2019</span><span class="neighborhood-stat-label">First Built</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">$380K–$800K</span><span class="neighborhood-stat-label">Price Range</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">~$566K</span><span class="neighborhood-stat-label">Avg. Sale Price</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">~1,047 Homes</span><span class="neighborhood-stat-label">Community Size</span></div>
+          </div>
+          <p>Hawkstone is the newest master-planned community in the Lithia area, located south of Fish Hawk Ranch West off Boyette and Balm-Boyette Roads, directly adjacent to the 969-acre Triple Creek Nature Preserve. Built entirely by Homes by WestBay — including their Casa Fresca entry-level brand — construction began around 2019 and the community has sold quickly since. Homes range from approximately 1,850 to 4,800 square feet with prices running from the high $300,000s to about $800,000. The community has resort-style amenities and CDD fees, and is zoned for Pinecrest Elementary, Barrington Middle, and Newsome High School. It sits at zip code 33579 rather than 33547 — worth noting if you're filtering real estate searches by zip code. Hawkstone is currently the most accessible new construction option in the broader Fish Hawk area while still sitting in the Newsome school zone, a combination that has driven strong demand since the community opened.</p>
+        </div>
+
+        <div class="neighborhood-card">
+          <div class="neighborhood-card-header">
+            <div>
+              <div class="neighborhood-card-title">River Hills</div>
+              <div class="neighborhood-card-subtitle">Lithia, FL 33547 &middot; Golf course community on the Alafia River</div>
+            </div>
+            <div class="neighborhood-tags">
+              <span class="neighborhood-tag tag-green">No CDD Fee</span>
+              <span class="neighborhood-tag tag-gray">Established</span>
+              <span class="neighborhood-tag tag-gray">Golf Community</span>
+            </div>
+          </div>
+          <div class="neighborhood-stats">
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">1990s–2000s</span><span class="neighborhood-stat-label">First Built</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">$400K–$800K+</span><span class="neighborhood-stat-label">Price Range</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">Golf / River Views</span><span class="neighborhood-stat-label">Setting</span></div>
+            <div class="neighborhood-stat"><span class="neighborhood-stat-value">Verify by Address</span><span class="neighborhood-stat-label">School Zone</span></div>
+          </div>
+          <p>River Hills is an older, established golf course community on the northern edge of the Fish Hawk area, bordering the Alafia River. It has a different character from the master-planned communities to the south — quieter, more mature, with established landscaping and a mix of custom homes arranged around the River Hills Country Club golf course. Homes were primarily built in the 1990s and early 2000s and run from the low $400,000s to over $800,000 depending on lot position, water views, and size. There is no CDD fee. School zoning varies by address — some homes fall within the Newsome zone, but verify through the HCPS School Locator before making a school-zone-dependent decision.</p>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- HOW TO CHOOSE -->
+        <div style="max-width: 900px;">
+          <span class="section-label">How to Choose</span>
+          <h2 class="section-title">Finding the right fit</h2>
+          <p class="section-intro">Every buyer's priorities are different. Here's a practical way to narrow it down based on what matters most to you.</p>
+
+          <div class="choose-grid">
+            <div class="choose-card">
+              <h4>If avoiding CDD fees is the priority</h4>
+              <p>Look at Fish Hawk Trails, Channing Park, or River Hills. All three are in the Fish Hawk area with no CDD assessment. Fish Hawk Trails is the premium option; Channing Park is the most family-oriented without the luxury price tag.</p>
+            </div>
+            <div class="choose-card">
+              <h4>If new construction is the priority</h4>
+              <p>Hawkstone is your best option for truly new homes at a range of price points. Some phases of Fish Hawk Ranch West and Starling may still have builder inventory depending on timing.</p>
+            </div>
+            <div class="choose-card">
+              <h4>If maximum amenities are the priority</h4>
+              <p>Fish Hawk Ranch offers the most comprehensive amenity network — trails, pools, fitness, courts, Park Square, and more. You pay for it through CDD fees, but the infrastructure is unmatched in the area.</p>
+            </div>
+            <div class="choose-card">
+              <h4>If privacy and large lots are the priority</h4>
+              <p>Fish Hawk Trails is the clear answer — gated, custom homes, oversized lots, and mature trees. River Hills offers a similar established feel at somewhat lower price points with golf course access.</p>
+            </div>
+            <div class="choose-card">
+              <h4>If 55+ living is the priority</h4>
+              <p>Encore at Fish Hawk Ranch is the only dedicated age-restricted community in the immediate area. Single-story homes, low maintenance, private clubhouse, and access to select Fish Hawk Ranch amenities.</p>
+            </div>
+            <div class="choose-card">
+              <h4>If budget is the primary constraint</h4>
+              <p>Hawkstone currently offers the most accessible entry point in the Newsome school zone. Within Fish Hawk Ranch itself, townhomes and villas in certain villages can start in the mid-$300,000s.</p>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider" />
+
+        <!-- SCHOOL ZONE NOTE -->
+        <div style="max-width: 760px; margin-bottom: 48px;">
+          <span class="section-label">School Zone Reminder</span>
+          <h3 style="margin-bottom: 12px;">Zone assignment is address-specific</h3>
+          <p>Every community profile on this page includes a school zone reference, but these are general guidelines. The actual public school your child attends is determined by your specific street address — not the neighborhood name, not the zip code. Zone boundaries can shift when the county redraws attendance areas. Always verify your exact address through the official <a href="https://www.hillsboroughschools.org/schoollocator" target="_blank" rel="noopener">HCPS School Locator</a> before making a purchase decision where a specific school matters.</p>
+        </div>
+
+        <!-- MORTGAGE CTA -->
+        <div class="post-cta" style="max-width: 900px;">
+          <h3>CDD fees affect your monthly payment more than most buyers expect</h3>
+          <p>Each community in Fish Hawk carries a different cost structure. Before comparing homes across neighborhoods, it helps to know exactly what you qualify for in each area — CDD assessments, HOA dues, taxes, and insurance all factor into your debt-to-income calculation. Get your questions answered before you start shopping.</p>
+          <a href="/contact.html" class="btn btn-primary">Talk to a Local Mortgage Broker</a>
+        </div>
+
       </div>
     </section>
   </main>
 
   <div id="footer-placeholder"></div>
-
   <script src="/includes.js"></script>
 </body>
 </html>
